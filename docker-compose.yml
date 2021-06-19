@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+
+  db:
+    container_name: pg_container
+    image: postgres:12.7
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - /home/lmattar/Documents/repositorios/tpf-foundations-lmattar/db:/infile
+      - pg_data127:/var/lib/postgresql/data/
+
+volumes:
+  pg_data127:
