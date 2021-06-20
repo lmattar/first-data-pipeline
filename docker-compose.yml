@@ -12,8 +12,8 @@ services:
     ports:
       - "5432:5432"
     volumes:
-      - /home/lmattar/Documents/repositorios/tpf-foundations-lmattar/db:/infile
       - pg_data127:/var/lib/postgresql/data/
+      - /home/lmattar/Documents/repositorios/tpf-foundations-lmattar/db:/docker-entrypoint-initdb.d/
 
 volumes:
   pg_data127:
