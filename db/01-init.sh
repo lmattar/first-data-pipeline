@@ -6,6 +6,8 @@ psql -v ON_ERROR_STOP=1 --username "$POSTGRES_USER"  <<-EOSQL
     CREATE DATABASE jjoo;
     GRANT ALL PRIVILEGES ON DATABASE jjoo TO jjoo;
 
+	\c jjoo ;
+
 	CREATE TABLE public.countries
 	(
 	    country character varying,
@@ -27,7 +29,7 @@ psql -v ON_ERROR_STOP=1 --username "$POSTGRES_USER"  <<-EOSQL
 	    Gender character varying,
 	    Event  character varying,
 	    Medal  character varying, 	
-	    CONSTRAINT pk_table_medals PRIMARY KEY (Year,Discipline,Athlete,Medal),
+	    CONSTRAINT pk_table_medals PRIMARY KEY (Year,Discipline,Athlete,Event,Medal),
 	    CONSTRAINT fk_countries FOREIGN KEY (Country)
 		REFERENCES public.countries (code)
 	);

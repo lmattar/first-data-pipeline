@@ -13,12 +13,7 @@ services:
       - "5432:5432"
     volumes:
       - pg_data127:/var/lib/postgresql/data/
-      - ./db:/docker-entrypoint-initdb.d/
-  pyth:
-    build: ./scriptdata
-    command: python loaddata.py
-    volumes:
-      - ./dataset:/tmp
+      - /home/lmattar/Documents/repositorios/tpf-foundations-lmattar/db:/docker-entrypoint-initdb.d/
 
 volumes:
   pg_data127:
