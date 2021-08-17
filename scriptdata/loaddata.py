@@ -1,7 +1,7 @@
 import psycopg2
 import time
 
-time.sleep(10)
+time.sleep(100)
 conn = psycopg2.connect("host=pg_container dbname=jjoo user=postgres password=postgres")
 cur = conn.cursor()
 with open('/tmp/countries.csv', 'r') as f:

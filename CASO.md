@@ -10,6 +10,6 @@ Las preguntas que se intentaran responder con el dataset son las siguientes:
  
    1. Cuales son los 10 paises con mas medallas en la historia de los JJOO?
    2. Cuales son las disciplinas en las que destacan los 3 paises con mas medallas ganadas?
-   3. Quienes son los 10 deportidas con mas medallas ganadas?
-   4. Que deportista participo en mas juegos olimpicos desde 1896?
-   5. Que paises participaron en todos los juegos desde su comienzo?
+   3. Cantidad de medallas repartidas por año
+   4. Total de medallas por tipo(Gold, Silver, Bronze)
+   5. Deportistas que ganaron medallas en mas de una disciplina.

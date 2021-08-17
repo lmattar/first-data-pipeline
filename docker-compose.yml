@@ -4,7 +4,7 @@ services:
 
   db:
     container_name: pg_container
-    image: postgres:12.7
+    image: postgres
     restart: always
     environment:
       POSTGRES_USER: postgres
@@ -19,6 +19,23 @@ services:
     command: python loaddata.py
     volumes:
       - ./dataset:/tmp
-
+  fastapi:
+    container_name: fastapi
+    build: ./apidata
+    command: uvicorn app.main:app --reload --workers 1 --host 0.0.0.0 --port 8001
+    ports:
+      - "8001:8001"
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+       - "8080:8080"
+  jupyter:
+    image: jupyter/scipy-notebook
+    container_name: jupyter
+    volumes:
+      - ./notebooks:/home/jovyan/work
+    ports:
+      - "8888:8888" 
 volumes:
   pg_data127:
