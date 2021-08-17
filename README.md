@@ -73,4 +73,20 @@ Este script de reporting debe correrse mediante una imagen de Docker con `docker
 
 ## Ejercicio 6: Documentación y ejecución end2end
 
-Agregue una sección al README.md comentando como resolvió los ejercicios, linkeando al archivo con la descripción del dataset y explicando como ejecutar un script de BASH para ejecutar todo el proceso end2end desde la creación del container, operaciones de DDL, carga de datos y consultas. Para esto crear el archivo de BASH correspondiente. 
+Agregue una sección al README.md comentando como resolvió los ejercicios, linkeando al archivo con la descripción del dataset y explicando como ejecutar un script de BASH para ejecutar todo el proceso end2end desde la creación del container, operaciones de DDL, carga de datos y consultas. Para esto crear el archivo de BASH correspondiente.
+
+## EJECUCION END TO END
+La ejecucion del pipeline basado en los datos presentados en el [CASO](https://github.com/itba-cloud-data-engineering/tpf-foundations-lmattar/CASO.md) se inicia con el siguiente [script](https://github.com/itba-cloud-data-engineering/tpf-foundations-lmattar/CASO.md), el cual inicia todos los contenedores necesarios mediante el comando docker-compose up. La presente solucion incluye 4 servicios principales:
+1. db: Contiene la base de datos PostgreSQL
+2. pyth: Ejecuta el codigo python que contiene las sentencias de carga de los datos en la base de datos.
+3. fastapi: Publica las APIs para exponer  los datos generados mediante las consultas SQL a la base de datos.
+4. jupyter: Levanta el servicio de Juypter donde se encuentra el cuaderno con los reportes creados para presentr la informacion recuperada mediante las APIs.
+
+Una vez iniciados los contenedores se debe obtener la url del servicio de jupyter desde la terminal donde se ejecuta el comando docker-compose up:
+
+imagen con url y token
+
+en juypter abrimos el notebook llamado JJOO.ipynb y ejecutamos las celdas para recuperar los datos. 
+
+
+
