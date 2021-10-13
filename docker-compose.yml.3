@@ -1,0 +1,34 @@
+version: '3.8'
+
+services:
+
+  db:
+    container_name: pg_container
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - pg_data127:/var/lib/postgresql/data/
+      - ./db:/docker-entrypoint-initdb.d/
+  pyth:
+    build: ./scriptdata
+    command: python loaddata.py
+    volumes:
+      - ./dataset:/tmp
+  fastapi:
+    build: ./apidata
+    command: uvicorn app.main:app --reload --workers 1 --host 0.0.0.0 --port 8001
+    ports:
+      - "8001:8001"
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+       - "8080:8080"
+   
+volumes:
+  pg_data127:
